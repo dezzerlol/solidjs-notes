@@ -1,11 +1,12 @@
 import type { Component } from 'solid-js'
 import Header from './components/Header'
 import Todos from './components/Todos'
+import { TodosProvider, useTodos } from './store/ContextProvider'
 
 const App: Component = () => {
+  const [store] = useTodos()
   return (
-    <div class='w-screen h-screen'>
-      <Header />
+    <div class={`w-screen h-screen ${store.nightMode ? 'dark' : 'light'}`}>
       <Todos />
     </div>
   )
